@@ -4,7 +4,6 @@
  *
  * Description: Displays a list of posts.
  */
-
 $slider_selector = get_post($block['data']['slider-selector']);
 
 if ( ! $slider_selector ) {
@@ -65,7 +64,7 @@ echo "</div>";
 const x = new Swiper('<?php echo ".swiper" . $slider_selector_id; ?>', {
   // Optional parameters
   direction: 'horizontal',
-  loop: false,
+  loop: true,
   <?php if($pagination) { ?>
     pagination: {
         el: '.swiper-pagination',

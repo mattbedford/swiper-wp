@@ -11,8 +11,5 @@
 
 namespace SwiperWP;
 
-include_once 'blocks/slider-block/swiper-wp.php';
-include_once 'blocks/slider-block/init.php';
-include_once 'blocks/slider-block/slider.php';
-
+include_once 'register.php';
 new Register();

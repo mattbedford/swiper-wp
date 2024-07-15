@@ -1,6 +1,6 @@
 {
-    "name": "contradata/slider-block",
-    "title": "slider block",
+    "name": "slider-block",
+    "title": "Slider",
     "description": "A custom block to display a slider custom-post element",
     "style": [ "file:./style.css" ],
     "category": "common",
@@ -8,9 +8,10 @@
     "keywords": ["slider", "carousel", "ulisse"],
     "acf": {
         "mode": "preview",
-        "renderTemplate": "block/template.php"
+        "renderTemplate": "template.php"
     },
     "supports": {
         "anchor": true
     }
 }
+
