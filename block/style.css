@@ -1,0 +1,13 @@
+:root {
+	--swiper-height: 400px;
+}
+
+.swiper {
+    width: 100%;
+      height:var(--swiper-height);
+  }
+  .swiper-slide {
+      background-size:cover;
+      background-position:center;
+      min-height:var(--swiper-height);
+  }
