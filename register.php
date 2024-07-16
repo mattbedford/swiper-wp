@@ -25,10 +25,12 @@ class Register {
             false,
             false
         );
+       wp_register_style('swiper-custom-styles', plugin_dir_url(__FILE__) . 'block/style.css');
        wp_register_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
        wp_enqueue_script('swiper-js');
        wp_enqueue_style('swiper-css');
     } 
+
   }
 
 

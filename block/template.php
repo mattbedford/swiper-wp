@@ -35,7 +35,7 @@ function print_slide($slide) {
 	echo "</div>";
 }
 
-echo "<div class='swiper swiper-" . $slider_selector_id . "'>";
+echo "<div class='swiper swiper" . $slider_selector_id . "'>";
 echo "<div class='swiper-wrapper'>";
 
 foreach( $slides as $slide ) {
