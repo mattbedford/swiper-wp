@@ -17,7 +17,7 @@ class Register {
   public static function CheckForSwiper (): void
   {
   	
-    if ( strpos( get_the_content(), 'swiper' ) !== false || is_page("slide-test") || is_home()) {
+    if ( has_block("acf/slider-block") ) {
         wp_register_script(
             'swiper-js',
             'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',

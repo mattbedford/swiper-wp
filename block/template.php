@@ -44,14 +44,14 @@ foreach( $slides as $slide ) {
 echo "</div>";
 
 if($pagination) {
-    echo "<div class='swiper-pagination'></div>";
+    echo "<div class='swiper-pagination . $slider_selector_id .'></div>";
 } 
 if($navigation) {
-    echo "<div class='swiper-button-prev'></div>";
-    echo "<div class='swiper-button-next'></div>";
+    echo "<div class='swiper-button-prev  . $slider_selector_id .'></div>";
+    echo "<div class='swiper-button-next  . $slider_selector_id .'></div>";
 }
 if($scrollbar) {
-    echo "<div class='swiper-scrollbar'></div>";
+    echo "<div class='swiper-scrollbar  . $slider_selector_id .'></div>";
 }
 echo "</div>";
 
@@ -67,18 +67,18 @@ const x = new Swiper('<?php echo ".swiper" . $slider_selector_id; ?>', {
   loop: true,
   <?php if($pagination) { ?>
     pagination: {
-        el: '.swiper-pagination',
+        el: '.swiper-pagination<?php echo $slider_selector_id; ?>',
     },
   <?php } ?>
   <?php if($navigation) { ?>
 	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
+		nextEl: '.swiper-button-next<?php echo $slider_selector_id; ?>',
+		prevEl: '.swiper-button-prev<?php echo $slider_selector_id; ?>',
 	},
     <?php } ?>
     <?php if($scrollbar) { ?>
 	scrollbar: {
-		el: '.swiper-scrollbar',
+		el: '.swiper-scrollbar<?php echo $slider_selector_id; ?>',
 	},
     <?php } ?>
 });
