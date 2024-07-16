@@ -46,7 +46,7 @@ echo "</div>";
 <script defer>
 
 
-const x = new Swiper('<?php echo ".swiper" . $slider_selector_id; ?>', {
+new Swiper('<?php echo ".swiper" . $slider_selector_id; ?>', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,

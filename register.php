@@ -10,10 +10,17 @@ class Register {
 
     add_action('init', [self::class, 'register_slider_block']);
     add_action('wp_enqueue_scripts', [self::class, 'CheckForSwiper']);
+	add_action('admin_enqueue_scripts', [self::class, 'CheckForSwiper']); // Load front-end styles & scripts even in editor view
+	add_action('admin_enqueue_scripts', [self::class, 'EditorScriptLoad']); // But load other stuff in editor view too
       
   }
   
   
+  public static function EditorScriptLoad(): void
+  {
+	  wp_register_style('swiper-editor-styles', plugin_dir_url(__FILE__) . 'block/editor-style.css');
+  }
+	
   public static function CheckForSwiper (): void
   {
   	
