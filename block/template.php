@@ -6,7 +6,7 @@ namespace SwiperWP;
 class BlockBuild 
 {
 
-    public static function build_slider_block($block) 
+    public static function BuildSliderBlock($block) 
     {
         $slider_selector = get_post($block['data']['slider-selector']);
 
@@ -25,7 +25,7 @@ class BlockBuild
 
     public static function SetFields(object $slider_selector): ?array 
     {
-        if ( ! $slider_selector ) return;
+        if ( ! $slider_selector ) return null;
 
         $fields = [
             "slider_selector_id" => $slider_selector->ID,
