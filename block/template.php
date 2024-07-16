@@ -44,14 +44,14 @@ foreach( $slides as $slide ) {
 echo "</div>";
 
 if($pagination) {
-    echo "<div class='swiper-pagination . $slider_selector_id .'></div>";
+    echo "<div class='swiper-pagination{$slider_selector_id}'></div>";
 } 
 if($navigation) {
-    echo "<div class='swiper-button-prev  . $slider_selector_id .'></div>";
-    echo "<div class='swiper-button-next  . $slider_selector_id .'></div>";
+    echo "<div class='swiper-button-prev{$slider_selector_id}'></div>";
+    echo "<div class='swiper-button-next{$slider_selector_id}'></div>";
 }
 if($scrollbar) {
-    echo "<div class='swiper-scrollbar  . $slider_selector_id .'></div>";
+    echo "<div class='swiper-scrollbar{$slider_selector_id}'></div>";
 }
 echo "</div>";
 
