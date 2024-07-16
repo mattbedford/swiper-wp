@@ -17,7 +17,7 @@ class Register {
   public static function CheckForSwiper (): void
   {
   	
-    if ( strpos( get_the_content(), 'swiper' ) !== false || is_page("test")) {
+    if ( strpos( get_the_content(), 'swiper' ) !== false || is_page("slide-test") || is_home()) {
         wp_register_script(
             'swiper-js',
             'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
@@ -25,12 +25,9 @@ class Register {
             false,
             false
         );
-       wp_register_style('swiper-custom-styles', plugin_dir_url(__FILE__) . 'block/style.css');
+	   wp_register_style('swiper-custom-styles', plugin_dir_url(__FILE__) . 'block/style.css');
        wp_register_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
-       wp_enqueue_script('swiper-js');
-       wp_enqueue_style('swiper-css');
     } 
-
   }
 
 
@@ -41,8 +38,3 @@ class Register {
 
     }
 }
-
-
-
-
-

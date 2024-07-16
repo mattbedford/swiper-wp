@@ -6,7 +6,7 @@
     width: 100%;
       height:var(--swiper-height);
   }
-  .swiper-slide {
+  .swiper-slide .slide-content {
       background-size:cover;
       background-position:center;
       min-height:var(--swiper-height);
