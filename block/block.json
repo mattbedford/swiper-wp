@@ -9,7 +9,7 @@
     "keywords": ["slider", "carousel", "ulisse"],
     "acf": {
         "mode": "preview",
-        "renderTemplate": "template.php"
+        "renderCallback": "SwiperWP\\BlockBuild::BuildSliderBlock"
     },
     "supports": {
         "anchor": true

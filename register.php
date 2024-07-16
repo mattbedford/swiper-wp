@@ -10,8 +10,8 @@ class Register {
 
     add_action('init', [self::class, 'register_slider_block']);
     add_action('wp_enqueue_scripts', [self::class, 'CheckForSwiper']);
-	add_action('admin_enqueue_scripts', [self::class, 'CheckForSwiper']); // Load front-end styles & scripts even in editor view
-	add_action('admin_enqueue_scripts', [self::class, 'EditorScriptLoad']); // But load other stuff in editor view too
+	  add_action('admin_enqueue_scripts', [self::class, 'CheckForSwiper']); // Load front-end styles & scripts even in editor view
+	  add_action('admin_enqueue_scripts', [self::class, 'EditorScriptLoad']); // But load other stuff in editor view too
       
   }
   
@@ -40,8 +40,8 @@ class Register {
 
     public static function register_slider_block() {
 		
-		//register_block_type( dirname(__FILE__) . '/block/block.json' );
-		      register_block_type( dirname(__FILE__) . '/block' );
+		include_once 'block/template.php';
+      	register_block_type( dirname(__FILE__) . '/block' );
 
     }
 }
