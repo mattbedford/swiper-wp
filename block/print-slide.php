@@ -112,7 +112,6 @@ class PrintSlide
 	public function products($product_id)
     {
 			$products = get_post($product_id);
-		console_logger($products);
 			$headline = wp_trim_words($products->post_title, 12);
 			$text = wp_trim_words(get_the_excerpt($products->ID), 15);
 			$image = get_the_post_thumbnail_url($products->ID, 'large');
