@@ -6,24 +6,41 @@ class HtmlLogos {
 
     private $fields = [];
     public $html = "";
+    public $settings = [];
 
     public function __construct(object $slider_selector)
     {
 
-        include_once 'print-slide.php';
-        $this->fields = [
-            "slider_selector_id" => $slider_selector->ID,
-            "slider_type" => get_field('slider_type', $slider_selector->ID),
-            "pagination" => get_field('enable_pagination', $slider_selector->ID),
-            "navigation" => get_field('enable_nav', $slider_selector->ID),
-            "scrollbar" => get_field('enable_scrollbar', $slider_selector->ID),
+        $this->settings = [
+            "number_of_slides" => 5,
+            "slides_per_view" => 1,
+            "space_between" => 20,
+            "loop" => true,
+            "autoplay" => true,
+            "breakpoints" => [
+                900 => [
+                    "slides_per_view" => 2,
+                    "space_between" => 40,
+                    "navigation" => [
+                        "enabled" => true,
+                    ],
+                ],
+                320 => [
+                    "slides_per_view" => 1,
+                    "space_between" => 20,
+                    "navigation" => [
+                        "enabled" => false,
+                    ],
+                ],
+            ],
+
         ];
 
-        $this->Html();
+        $this->Contents();
     }
 
 
-    private function Html() {
+    private function Contents() {
         $this->fields['slides'] = get_terms([
             'taxonomy' => 'produttore',
             'parent'   => 0,
@@ -33,6 +50,8 @@ class HtmlLogos {
         ]);
 
         $slider_type = strval($this->fields["slider_type"]);
+
+        include_once dirname(__DIR__) . '/print-slide.php';
 
         foreach( $this->fields["slides"] as $slide ) {
             $printer = new PrintSlide();

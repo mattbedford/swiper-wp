@@ -4,26 +4,42 @@ namespace SwiperWP;
 
 class HtmlPartners {
 
-    private $number_of_slides = 0;
     private $fields = [];
+    public $html = "";
+    public $settings = [];
+
     public function __construct(object $slider_selector)
     {
-        if ( ! $slider_selector ) return null;
 
-        $fields = [
-            "slider_selector_id" => $slider_selector->ID,
-            "slider_type" => get_field('slider_type', $slider_selector->ID),
-            "pagination" => get_field('enable_pagination', $slider_selector->ID),
-            "navigation" => get_field('enable_nav', $slider_selector->ID),
-            "scrollbar" => get_field('enable_scrollbar', $slider_selector->ID),
-            "slides" => [1,2], // Non empty array
+        $this->settings = [
+            "number_of_slides" => 5,
+            "slides_per_view" => 1,
+            "space_between" => 20,
+            "loop" => true,
+            "autoplay" => true,
+            "breakpoints" => [
+                900 => [
+                    "slides_per_view" => 2,
+                    "space_between" => 40,
+                    "navigation" => [
+                        "enabled" => true,
+                    ],
+                ],
+                320 => [
+                    "slides_per_view" => 1,
+                    "space_between" => 20,
+                    "navigation" => [
+                        "enabled" => false,
+                    ],
+                ],
+            ],
+
         ];
 
-        return $fields;
+        $this->Contents();
     }
 
-
-    private function Print() {
+    private function Contents() {
         $this->fields['slides'] = get_terms([
             'taxonomy' => 'produttore',
             'parent'   => 0,
@@ -31,19 +47,14 @@ class HtmlPartners {
             'order' => 'ASC',
             'orderby' => 'name'
         ]);
-        $this->number_of_slides = count($fields['slides']) ?? 0;
+        $slider_type = strval($this->fields["slider_type"]);
 
-        include_once 'print-slide.php';
-        $unique_id = $fields["slider_selector_id"];
+        include_once dirname(__DIR__) . '/print-slide.php';
 
-        echo "<div class='swiper swiper" . $unique_id . "' data-slider-type='" . $slider_type . "'>";
-        echo "<div class='swiper-wrapper'>";
-
-        foreach( $fields["slides"] as $slide ) {
+        foreach( $this->fields["slides"] as $slide ) {
             $printer = new PrintSlide();
-            $printer->$slider_type($slide);
+            $this->html .= $printer->$slider_type($slide);
         }
-        echo "</div>";
     }
 
 }
